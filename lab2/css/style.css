@@ -12,6 +12,11 @@ body {
     letter-spacing: 0.2px;
 }
 
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .heading {
     height: 82px;
     padding: 10px;
