@@ -735,6 +735,7 @@ a {
     .menu-icon {
         display: block;
         width: 66px;
+        height: 53px;
     }
     .menu {
         display: none;
