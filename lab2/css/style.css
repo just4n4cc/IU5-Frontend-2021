@@ -974,6 +974,7 @@ a {
     }
     .m-open-img {
         display: block;
+        width: 83%;
     }
     .finish {
         width: 100%;
