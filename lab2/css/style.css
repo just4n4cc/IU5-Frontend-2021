@@ -717,14 +717,20 @@ a {
 
 @media screen and (max-width: 1000px) {
     .navBar {
+        display: block;
         width: 100vw;
+        box-sizing: border-box;
         height: 107px;
+        padding-left: 24px;
+        padding-right: 16px;
     }
     .figma-logo {
-        margin-left: 24px;
+        float: left;
+        margin-left: 0px;
         margin-top: 15px;
     }
     .login-frame {
+        float: right;
         margin-top: 28px;
         margin-right: 16px;
         display: flex;
