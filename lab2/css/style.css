@@ -732,7 +732,7 @@ a {
     .login-frame {
         float: right;
         margin-top: 28px;
-        margin-right: 16px;
+        margin-right: 0px;
         display: flex;
         justify-content: space-between;
         height: 53px;
