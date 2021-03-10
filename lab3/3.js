@@ -8,11 +8,12 @@
  */
 
 function multiplyArray(arr, n) {
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; ++i) {
         if (typeof(arr[i]) === "number") {
             arr[i] *= n;
         }
     }
+
     return arr;
 }
 
