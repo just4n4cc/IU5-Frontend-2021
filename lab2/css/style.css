@@ -717,29 +717,34 @@ a {
 
 @media screen and (max-width: 1000px) {
     .navBar {
-        display: block;
+        display: flex;
+        justify-content: space-between;
         width: 100vw;
+        padding: 0px 16px 0px 24px;
         box-sizing: border-box;
         height: 107px;
-        padding-left: 24px;
-        padding-right: 16px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
     .figma-logo {
-        float: left;
+        /* float: left; */
         margin-left: 0px;
         margin-top: 15px;
     }
     .login-frame {
-        float: right;
-        margin-top: 28px;
-        margin-right: 0px;
+        /* float: right; */
         display: flex;
         justify-content: space-between;
+        margin-top: 28px;
+        margin-right: 0px;
         height: 53px;
         width: 230px;
     }
     .menu-icon {
         display: block;
+        /* float: right; */
+        /* margin-left: 16px; */
     }
     .menu {
         display: none;
