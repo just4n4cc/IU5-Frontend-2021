@@ -10,8 +10,22 @@
  */
 
 function checkBrackets(str) {
-    //code here
+    const open = ['[', '(', '<'];
+    const close = [']', ')', '>'];
+    const sArr = str.split('');
+    const arr = [];
 
+    for (const c of sArr) {
+        const index = open.indexOf(c);
+        if (index !== -1) {
+            arr.push(index);
+        } else {
+            if (c !== close[arr.pop()]) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 module.exports = checkBrackets;

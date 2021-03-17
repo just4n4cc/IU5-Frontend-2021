@@ -17,7 +17,18 @@
 */
 
 function get1DArray(arr) {
-    //code here
+    const res = [];
+    for (const el1 of arr) {
+        if (Array.isArray(el1)) {
+            const temp = get1DArray(el1);
+            for (const el2 of temp) {
+                res.push(el2);
+            }
+        } else {
+            res.push(el1);
+        }
+    }
+    return res;
 }
 
 module.exports = get1DArray;
