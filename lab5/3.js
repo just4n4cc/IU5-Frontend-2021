@@ -7,7 +7,10 @@
  */
 
 function customBind(f, context) {
-    //code here
+    for (const key of Object.keys(context)) {
+        this[key] = context[key];
+    }
+    return f;
 }
 
 module.exports = customBind;

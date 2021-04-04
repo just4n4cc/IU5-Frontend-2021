@@ -22,7 +22,34 @@
  */
 
 function makeRoute(arr) {
-    //code here
+    const res = [];
+
+    for (const [index, fromEl] of arr.entries()) { // finding head
+        let head = true;
+        for (const toEl of arr) {
+            if (fromEl.from === toEl.to) {
+                head = false;
+                break;
+            }
+        }
+        if (head) {
+            arr.splice(index, 1);
+            res.push(fromEl);
+            break;
+        }
+    }
+
+    while (arr.length !== 0) { // making route
+        for (const [index, fromEl] of arr.entries()) {
+            if (res[res.length - 1].to === fromEl.from) {
+                arr.splice(index, 1);
+                res.push(fromEl)
+                break;
+            }
+        }
+    }
+
+    return res;
 }
 
 module.exports = makeRoute;

@@ -13,7 +13,20 @@
  * console.log(curry(add)(1, 2, 3)); //6
  */
 function curry(f) {
-    //code here
+    let arr = [];
+
+    if (arguments.length === f.length) {
+        return f(...arguments);
+    }
+
+    return function some(...args) {
+        arr = arr.concat(args);
+        if (arr.length === f.length) {
+            return f(...arr);
+        } else {
+            return some;
+        }
+    }
 }
 
 module.exports = curry;
