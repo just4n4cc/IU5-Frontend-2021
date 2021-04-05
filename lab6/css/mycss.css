@@ -16,8 +16,6 @@
 /* Second */
 
 #timer {
-    /* margin-top: 30px; */
-    /* margin-left: 30px; */
     font-size: 50px;
     width: min-content;
 }
@@ -26,9 +24,6 @@
 /* Third */
 
 button {
-    /* margin-top: 30px; */
-    /* margin-left: 30px; */
-    /* width: 100px; */
     margin-right: 20px;
     padding: 5px 20px;
     position: relative;
@@ -41,7 +36,6 @@ button {
     display: none;
     width: 130px;
     height: 100px;
-    /* display: flex; */
     flex-direction: column;
     font-size: 30px;
     color: #fff;
@@ -64,7 +58,6 @@ button {
 /* Fourth */
 
 #field {
-    /* margin-top: 80px; */
     width: 800px;
     height: 800px;
     border: 2px solid #4aac72;
@@ -86,13 +79,11 @@ button {
 }
 
 #seriesList {
-    /* width: 130px; */
     height: 150px;
     width: auto;
     padding: 10px;
     display: flex;
     text-align: left;
-    /* position: static; */
 }
 
 #seriesList>.episode {

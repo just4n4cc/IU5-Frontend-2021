@@ -13,7 +13,6 @@
     <div class="art">
         <div id="quad"></div>
         <script>
-            // First
             const quad = document.getElementById('quad');
             quad.addEventListener('click', (e) => {
                 quad.style.backgroundColor = '#' + Math.floor(Math.random() * (256)).toString(16) +
@@ -25,7 +24,6 @@
     <div class="art">
         <div id="timer">0</div>
         <script>
-            // First
             const timer = document.getElementById('timer');
             let interval;
 
@@ -120,8 +118,6 @@
             let serials = [];
             let currentSerial;
             let currentSeason;
-            // let serials = [];
-            // const serials = [];
 
             function cleanBlock(someBlock) {
                 while (someBlock.firstChild) {
@@ -161,7 +157,6 @@
                 seasonBlock.appendChild(chooseText);
                 for (let i = 1; i <= serials[currentSerial].seasons.length; ++i) {
                     const seasonNumber = document.createElement('button');
-                    // seasonNumber.style.position = 'relative';
                     seasonNumber.className = 'seasonNumber';
                     seasonNumber.innerHTML = 'Season ' + i;
                     seasonBlock.appendChild(seasonNumber);
@@ -177,7 +172,6 @@
                 const seriesList = document.createElement('div');
                 seriesList.className = 'listy';
                 seriesList.id = 'seriesList';
-                // seriesList.style.position = 'absolute';
                 const buttonPosition = seasonButton.getBoundingClientRect();
                 seriesList.style.left = buttonPosition.left + 'px';
                 serials[currentSerial].seasons[currentSeason].forEach((el, i) => {
