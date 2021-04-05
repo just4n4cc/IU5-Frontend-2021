@@ -5,11 +5,285 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/mycss.css">
     <title>Document</title>
 </head>
 
 <body>
+    <div class="art">
+        <div id="quad"></div>
+        <script>
+            // First
+            const quad = document.getElementById('quad');
+            quad.addEventListener('click', (e) => {
+                quad.style.backgroundColor = '#' + Math.floor(Math.random() * (256)).toString(16) +
+                    Math.floor(Math.random() * (256)).toString(16) + Math.floor(Math.random() * (256)).toString(16);
+            }, false)
+        </script>
+    </div>
 
+    <div class="art">
+        <div id="timer">0</div>
+        <script>
+            // First
+            const timer = document.getElementById('timer');
+            let interval;
+
+            function tick() {
+                interval = setInterval(() => {
+                    timer.innerText++;
+                }, 1000);
+            }
+            timer.addEventListener('mouseenter', (e) => {
+                tick();
+            });
+            timer.addEventListener('mouseleave', (e) => {
+                clearInterval(interval);
+            });
+        </script>
+    </div>
+
+    <div class="art">
+        <button id="try">
+            Try
+        </button>
+        <div id="list" class="listy">
+            <div class="item">
+                Item #1
+            </div>
+            <div class="item">
+                Item #2
+            </div>
+            <div class="item">
+                Item #3
+            </div>
+            <div class="item">
+                Item #4
+            </div>
+        </div>
+        <script>
+            const tryButton = document.getElementById('try');
+            const customList = document.getElementById('list');
+            customList.style.display === 'none' ? customList.style.display = 'flex' : customList.style.display = 'none';
+            tryButton.addEventListener('click', (e) => {
+                customList.style.display === 'none' ? customList.style.display = 'flex' : customList.style.display = 'none';
+            })
+        </script>
+
+
+    </div>
+
+    <div class="art">
+        <div id="field">
+            <div id="ball">
+            </div>
+        </div>
+        <script>
+            const ball = document.getElementById('ball');
+            const field = document.getElementById('field');
+            let flag = false;
+
+            function moveBall(e) {
+                if (flag === false) {
+                    return;
+                }
+                const box = field.getBoundingClientRect();
+                if (e.pageY < (box.top + pageYOffset + ball.clientHeight / 2) || (e.pageY > (box.top + pageYOffset + field.clientHeight - ball.clientHeight / 2))) {
+                    return;
+                }
+                if (e.pageX < (box.left + pageXOffset + ball.clientWidth / 2) || (e.pageX > (box.left + pageXOffset + field.clientWidth - ball.clientWidth / 2))) {
+                    return;
+                }
+                ball.style.left = e.pageX - ball.offsetWidth / 2 + 'px';
+                ball.style.top = e.pageY - ball.offsetHeight / 2 + 'px';
+            }
+            addEventListener('mousedown', (e) => {
+                if (e.target !== ball) {
+                    return;
+                }
+                flag = true;
+                ball.style.position = 'absolute';
+                moveBall(e);
+            });
+            addEventListener('mousemove', moveBall);
+            addEventListener('keydown', (e) => {
+                flag = false;
+            })
+        </script>
+    </div>
+
+    <div class="art">
+        <button id="network">Wanna watch something?</button>
+        <div id="serialBlock"></div>
+        <script>
+            const network = document.getElementById('network');
+            let serials = [];
+            let currentSerial;
+            let currentSeason;
+            // let serials = [];
+            // const serials = [];
+
+            function cleanBlock(someBlock) {
+                while (someBlock.firstChild) {
+                    someBlock.removeChild(someBlock.lastChild);
+                }
+            }
+
+            function toBin(elName) {
+                const bin = document.getElementById(elName);
+                if (bin !== null) {
+                    bin.remove();
+                }
+            }
+
+            function createSerials() {
+                const serialBlock = document.getElementById('serialBlock');
+                cleanBlock(serialBlock);
+                const chooseText = document.createElement('p');
+                chooseText.innerHTML = 'Choose a serial';
+                serialBlock.appendChild(chooseText);
+                for (const serial of serials) {
+                    const serialName = document.createElement('button');
+                    serialName.className = 'serialName';
+                    serialName.innerHTML = serial.name;
+                    serialBlock.appendChild(serialName);
+                }
+                const seasonsBlock = document.createElement('div');
+                seasonsBlock.id = 'seasonBlock';
+                serialBlock.appendChild(seasonsBlock);
+            }
+
+            function createSeasons() {
+                const seasonBlock = document.getElementById('seasonBlock');
+                cleanBlock(seasonBlock);
+                const chooseText = document.createElement('p');
+                chooseText.innerHTML = 'Choose a season';
+                seasonBlock.appendChild(chooseText);
+                for (let i = 1; i <= serials[currentSerial].seasons.length; ++i) {
+                    const seasonNumber = document.createElement('button');
+                    // seasonNumber.style.position = 'relative';
+                    seasonNumber.className = 'seasonNumber';
+                    seasonNumber.innerHTML = 'Season ' + i;
+                    seasonBlock.appendChild(seasonNumber);
+                }
+                const seriesBlock = document.createElement('div');
+                seriesBlock.id = 'seriesBlock';
+                seasonBlock.appendChild(seriesBlock);
+            }
+
+            function createSeries(seasonButton) {
+                const seriesBlock = document.getElementById('seriesBlock');
+                cleanBlock(seriesBlock);
+                const seriesList = document.createElement('div');
+                seriesList.className = 'listy';
+                seriesList.id = 'seriesList';
+                // seriesList.style.position = 'absolute';
+                const buttonPosition = seasonButton.getBoundingClientRect();
+                seriesList.style.left = buttonPosition.left + 'px';
+                serials[currentSerial].seasons[currentSeason].forEach((el, i) => {
+                    const episode = document.createElement('div');
+                    episode.classList.add('item', 'episode');
+                    episode.innerText = '#' + (i + 1) + ' ' + el.title + '. ' + 'Date: ' + el.air_date;
+                    seriesList.appendChild(episode);
+                });
+                seriesBlock.appendChild(seriesList);
+            }
+
+            function createVideo(e) {
+                const seriesBlock = document.getElementById('seriesBlock');
+                cleanBlock(seriesBlock);
+                toBin('episodeTitle');
+                toBin('video');
+                toBin('loader');
+                const seasonBlock = document.getElementById('seasonBlock');
+                const episodeTitle = document.createElement('p');
+                episodeTitle.innerHTML = e.innerHTML;
+                episodeTitle.id = 'episodeTitle';
+                seasonBlock.appendChild(episodeTitle);
+
+                const video = document.createElement('div');
+                video.style.width = 1080 + 'px';
+                video.style.height = 720 + 'px';
+                video.style.backgroundColor = '#000';
+                video.style.position = 'relative';
+                video.id = 'video';
+                seasonBlock.appendChild(video);
+
+                const loader = document.createElement('img');
+                loader.setAttribute('src', 'img/load.gif')
+                loader.style.marginLeft = '476px';
+                loader.style.marginTop = '296px';
+                video.appendChild(loader);
+            }
+
+            function parseToSerials(data) {
+                const serials = [];
+                for (const el of data) {
+                    let newSerial = true;
+                    let serialOffset;
+                    for (const [index, serial] of serials.entries()) {
+                        if (el.series === serial.name) {
+                            newSerial = false;
+                            serialOffset = index;
+                            break;
+                        }
+                    }
+                    if (newSerial) {
+                        serials.push({
+                            name: el.series,
+                            seasons: []
+                        });
+                        serialOffset = serials.length - 1;
+                    }
+                    while (el.season > serials[serialOffset].seasons.length) {
+                        serials[serialOffset].seasons.push([]);
+                    }
+                    serials[serialOffset].seasons[el.season - 1].push({
+                        title: el.title,
+                        air_date: el.air_date
+                    });
+
+                }
+                return serials;
+            }
+
+            function download() {
+                fetch('https://breakingbadapi.com/api/episodes').then((resp) => resp.json()).then((data) => {
+                    serials = parseToSerials(data);
+                    createSerials();
+                });
+            }
+
+            function handler(e) {
+                if (e.target === network) {
+                    download();
+                    return;
+                }
+                const serialsArr = [...document.getElementsByClassName('serialName')];
+                if (serialsArr.includes(e.target)) {
+                    currentSerial = serialsArr.indexOf(e.target);
+                    createSeasons();
+                    return;
+                }
+                const seasonsArr = [...document.getElementsByClassName('seasonNumber')];
+                if (seasonsArr.includes(e.target)) {
+                    currentSeason = seasonsArr.indexOf(e.target);
+                    createSeries(e.target);
+                    return;
+                }
+                const seriesArr = [...document.getElementsByClassName('episode')]
+                if (seriesArr.includes(e.target)) {
+                    createVideo(e.target);
+                }
+            }
+
+            addEventListener('click', handler, false)
+        </script>
+    </div>
+
+    <footer>
+        <p>Lalalalalala</p>
+    </footer>
 </body>
 
 </html>
