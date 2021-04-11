@@ -97,6 +97,7 @@ input:focus {
     header {
         padding: 10px;
         font-size: 18px;
+        height: 40px;
     }
     header>img {
         height: 40px;
