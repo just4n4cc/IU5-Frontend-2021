@@ -60,7 +60,7 @@
         }
 
         function download(cityName) {
-            fetch("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&lang=ru&appid=728fdf79137e589adf8bb920b32b8a7c").then((resp) => resp.json()).then((data) => {
+            fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&lang=ru&appid=728fdf79137e589adf8bb920b32b8a7c").then((resp) => resp.json()).then((data) => {
                 console.log(data);
                 buildWeatherCard(data);
             });
