@@ -9,24 +9,25 @@
             const weatherCard = document.getElementById("weatherCard");
             if (code > 800) {
                 weatherCard.style.background = "url(img/clouds.jpg) no-repeat";
-                weatherCard.style.backgroundSize = "100%";
+                weatherCard.style.backgroundSize = "cover";
             } else if (code === 800) {
-                weatherCard.style.background = "url(img/clear.jpg) no-repeat";
-                weatherCard.style.backgroundSize = "100%";
+                weatherCard.style.background = "url(img/clear.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
             } else if (code >= 700) {
-                weatherCard.style.background = "url(img/mist.jpg) no-repeat";
-                weatherCard.style.backgroundSize = "100%";
+                weatherCard.style.background = "url(img/mist.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
             } else if (code >= 600) {
-                weatherCard.style.background = "url(img/snow.jpg) no-repeat";
-                weatherCard.style.backgroundSize = "100%";
+                weatherCard.style.background = "url(img/snow.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
             } else if (code >= 500) {
-                weatherCard.style.background = "url(img/rain.jfif) no-repeat";
-                weatherCard.style.backgroundSize = "100%";
+                weatherCard.style.background = "url(img/rain.jfif) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
             } else if (code >= 300) {
-                weatherCard.style.background = "url(img/drizzle.jpg) no-repeat";
+                weatherCard.style.background = "url(img/drizzle.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
             } else if (code >= 200) {
-                weatherCard.style.background = "url(img/thunderstorm.jpg) no-repeat";
-                weatherCard.style.backgroundSize = "100%";
+                weatherCard.style.background = "url(img/thunderstorm.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
             }
         }
 

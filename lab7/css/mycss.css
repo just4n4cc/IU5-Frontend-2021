@@ -15,7 +15,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    /* height: 80px; */
     text-align: center;
     font-size: 36px;
 }
@@ -33,7 +32,6 @@ header>img {
     display: flex;
     justify-content: space-between;
     width: 275px;
-    /* margin-right: 10px; */
 }
 
 .searchBlock>img {
@@ -68,17 +66,17 @@ input:focus {
     width: 500px;
 }
 
+.propVals {
+    margin-top: 5px;
+}
+
 #weatherCard {
-    /* background-color: aqua; */
     width: 900px;
     height: 350px;
-    margin: 40px auto;
+    margin: 100px auto;
     padding: 40px;
     color: #fff;
     border-radius: 50px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
 }
 
 #cityName {
@@ -116,26 +114,16 @@ input:focus {
         border-radius: 5px;
         font-size: 12px;
     }
-    .container,
     .lhs {
-        display: flex;
-        justify-content: space-between;
-    }
-    .lhs {
-        /* margin-top: 20px; */
         margin-top: 10px;
         font-size: 20px;
         width: 250px;
     }
     #weatherCard {
-        /* background-color: aqua; */
-        /* width: 400px; */
         width: 80%;
-        /* height: 130px; */
         height: auto;
         margin: 40px auto;
         padding: 20px;
-        color: #fff;
         border-radius: 25px;
     }
     #cityName {
@@ -143,10 +131,39 @@ input:focus {
     }
     #degrees {
         font-size: 70px;
-        text-align: right;
     }
     #description {
-        text-align: right;
         font-size: 20px;
+    }
+    .propVals {
+        margin-top: 2px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .lhs {
+        margin-top: 10px;
+        font-size: 15px;
+        width: 250px;
+    }
+    #weatherCard {
+        width: 80%;
+        height: auto;
+        min-height: 142.4px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 25px;
+    }
+    #cityName {
+        font-size: 30px;
+    }
+    #degrees {
+        font-size: 70px;
+    }
+    #description {
+        font-size: 20px;
+    }
+    .propVals {
+        margin-top: 2px;
     }
 }
