@@ -5,6 +5,11 @@
 
 <head>
     <script>
+        function handleError() {
+            alert('Такого города нет, но СЛАВА БОГУ ЕСТЬ МЫТИЩИ! Только посмотрите КАКАЯ ТАМ ПОГОДА!!!!');
+            download('Мытищи');
+        }
+
         function setBackground(code) {
             const weatherCard = document.getElementById("weatherCard");
             if (code > 800) {
@@ -46,13 +51,13 @@
             document.getElementById("cityName").innerText = "Погода: " + data.name;
 
 
-            document.getElementById("degrees").innerText = getTemp(data.main.temp);
+            document.getElementById("degrees").innerText = getTemp(data.main.temp) + '°';
 
-            document.getElementById("description").innerText = data.weather[0].description[0].toUpperCase() + data.weather[0].description.slice(1);;
+            document.getElementById("description").innerText = data.weather[0].description[0].toUpperCase() + data.weather[0].description.slice(1);
 
-            document.getElementById("feel").innerText = getTemp(data.main.feels_like);
+            document.getElementById("feel").innerText = getTemp(data.main.feels_like) + '°';
 
-            document.getElementById("range").innerText = getTemp(data.main.temp_max) + '/' + getTemp(data.main.temp_min);
+            document.getElementById("range").innerText = getTemp(data.main.temp_max) + '°' + '/' + getTemp(data.main.temp_min) + '°';
 
             document.getElementById("humidity").innerText = data.main.humidity + '%';
 
@@ -62,7 +67,11 @@
         function download(cityName) {
             fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&lang=ru&appid=728fdf79137e589adf8bb920b32b8a7c").then((resp) => resp.json()).then((data) => {
                 console.log(data);
-                buildWeatherCard(data);
+                if (data.cod === "404") {
+                    handleError();
+                } else {
+                    buildWeatherCard(data);
+                }
             });
         }
 
@@ -88,7 +97,7 @@
     <title>Lab7</title>
 </head>
 
-<body onload="download('москва');">
+<body onload="download('мытищи');">
     <header>
         <img src="img/header-pic.png">
         <span class="title">myWeather</span>
