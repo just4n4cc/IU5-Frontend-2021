@@ -1,14 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
+    <script>
+        function handleError() {
+            alert('Такого города нет, но СЛАВА БОГУ ЕСТЬ МЫТИЩИ! Только посмотрите КАКАЯ ТАМ ПОГОДА!!!!');
+            download('Мытищи');
+        }
+
+        function setBackground(code) {
+            const weatherCard = document.getElementById("weatherCard");
+            if (code > 800) {
+                weatherCard.style.background = "url(img/clouds.jpg) no-repeat";
+                weatherCard.style.backgroundSize = "cover";
+            } else if (code === 800) {
+                weatherCard.style.background = "url(img/clear.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
+            } else if (code >= 700) {
+                weatherCard.style.background = "url(img/mist.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
+            } else if (code >= 600) {
+                weatherCard.style.background = "url(img/snow.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
+            } else if (code >= 500) {
+                weatherCard.style.background = "url(img/rain.jfif) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
+            } else if (code >= 300) {
+                weatherCard.style.background = "url(img/drizzle.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
+            } else if (code >= 200) {
+                weatherCard.style.background = "url(img/thunderstorm.jpg) 100% 100% / 100% no-repeat";
+                weatherCard.style.backgroundSize = "cover";
+            }
+        }
+
+        function getTemp(temp) {
+            let degSign = "";
+            temp -= 273.15;
+            if (temp > 0) {
+                degSign = "+";
+            }
+            return degSign + Math.round(temp);
+        }
+
+        function buildWeatherCard(data) {
+            setBackground(data.weather[0].id);
+
+            document.getElementById("cityName").innerText = "Погода: " + data.name;
+
+
+            document.getElementById("degrees").innerText = getTemp(data.main.temp) + '°';
+
+            document.getElementById("description").innerText = data.weather[0].description[0].toUpperCase() + data.weather[0].description.slice(1);
+
+            document.getElementById("feel").innerText = getTemp(data.main.feels_like) + '°';
+
+            document.getElementById("range").innerText = getTemp(data.main.temp_max) + '°' + '/' + getTemp(data.main.temp_min) + '°';
+
+            document.getElementById("humidity").innerText = data.main.humidity + '%';
+
+            document.getElementById("pressure").innerText = Math.round(data.main.pressure) + ' мбар';
+        }
+
+        function download(cityName) {
+            fetch("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&lang=ru&appid=728fdf79137e589adf8bb920b32b8a7c").then((resp) => resp.json()).then((data) => {
+                console.log(data);
+                if (data.cod === "404") {
+                    handleError();
+                } else {
+                    buildWeatherCard(data);
+                }
+            });
+        }
+
+        function handler(e) {
+            if (e.target === document.getElementById("searchButton")) {
+                download(document.getElementById("searchBox").value);
+            } else if (e.code === "Enter") {
+                console.log("Enter");
+                if (document.querySelector('input:focus')) {
+                    download(document.getElementById("searchBox").value);
+                }
+            }
+        }
+
+        addEventListener('click', handler, false);
+        addEventListener('keydown', handler, false);
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width = device-width, user-scalable = 0, initial-scale = 1.0, maximum-scale = 1.0">
+    <link rel="stylesheet" href="css/mycss.css">
     <title>Lab7</title>
 </head>
 
-<body>
+<body onload="download('мытищи');">
+    <header>
+        <img src="img/header-pic.png">
+        <span class="title">myWeather</span>
+        <div class="searchBlock">
+            <input id="searchBox" type="text" placeholder="Где жывеш?">
+            <img id="searchButton" src="img/search.svg">
+        </div>
+    </header>
+
+    <div id="weatherBlock">
+        <div id="weatherCard">
+            <div id="cityName"></div>
+            <div class="container">
+                <div class="lhs">
+                    <div class="propList">
+                        <div>Ощущается как: </div>
+                        <div>Max/Min: </div>
+                        <div>Влажность: </div>
+                        <div>Давление: </div>
+                    </div>
+                    <div class="propVals">
+                        <div id="feel"></div>
+                        <div id="range"></div>
+                        <div id="humidity"></div>
+                        <div id="pressure"></div>
+                    </div>
+                </div>
+                <div class="rhs">
+                    <div id="degrees"></div>
+                    <div id="description"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
