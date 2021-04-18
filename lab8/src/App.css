@@ -16,7 +16,7 @@ h2 {
 }
 
 .Main {
-    min-height: calc(100vh - 489px);
+    min-height: calc(100vh - 482px);
     background-image: url(img/bg.png);
     padding-bottom: 50px;
     padding-top: 50px;
