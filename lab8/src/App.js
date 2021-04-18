@@ -77,12 +77,12 @@ function App() {
           <h2>// My site, my rules</h2>
           <div>
             <p>// Tododos:<br/>
-            // 1. To edit ur tododo JUST click on its label.<br/>
+            // 1. To edit ur tododo JUST click on the text.<br/>
             // 2. To save any tododo JUST hit Enter button.</p>    
             
             <p>// Tododones:<br/>
             // 1. To undodo ur tododone JUST click on checkbox.<br/>
-            // 2. To remove any tododone JUST click on its label.</p>     
+            // 2. To remove any tododone JUST click on the text.</p>     
           </div>
       </footer>
     </div>
