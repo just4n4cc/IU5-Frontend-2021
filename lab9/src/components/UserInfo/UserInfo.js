@@ -1,5 +1,5 @@
 import "./UserInfo.css"
-import door from "../../img/door.svg"
+import {ReactComponent as Door} from "../../img/door.svg"
 import {Link, useHistory} from "react-router-dom"
 
 export function UserInfo(props) {
@@ -22,7 +22,8 @@ export function UserInfo(props) {
             </div>
             <div className="rhs">
                 <img src={props.data.avatar_url} alt=""/>
-                <img onClick={(e)=>handleClick(e)} id="door" src={door} alt=""/>
+                <Door onClick={(e)=>handleClick(e)} id="door" alt=""/>
+                {/* <img onClick={(e)=>handleClick(e)} id="door" src={door} alt=""/> */}
             </div>
         </div>
     );
