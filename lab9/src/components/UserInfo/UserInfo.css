@@ -1,0 +1,47 @@
+.info {
+    padding: 40px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.rhs {
+    display: flex;
+    flex-direction: column;
+}
+
+.rhs>img {
+    margin-bottom: 50px;
+    width: 300px;
+}
+
+#door {
+    filter: invert(20%);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    p {
+        font-size: 17px;
+        margin: 7px;
+    }
+    .rhs>img {
+        margin-bottom: 30px;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .info {
+        padding: 20px;
+    }
+    p {
+        font-size: 12px;
+        margin: 5px;
+    }
+    .rhs>img {
+        margin-bottom: 20px;
+        width: 100px;
+    }
+}

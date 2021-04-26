@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useMemo } from "react";
+import React, { useEffect, useCallback } from "react";
 import {Footer} from "./components/Footer/Footer"
 import {Header} from "./components/Header/Header"
 import {UserInfo} from "./components/UserInfo/UserInfo"
@@ -11,15 +11,13 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const a = 5;
-  // console.log(process)
-  // fetch("https://username:" + process.env.REACT_APP_API_KEY +"@api.github.com/users/katekaa").then((data)=>data.json()).then((res)=>console.log(res));
-  // fetch("https://api.github.com/users/katekaa", {Authorization: process.env.REACT_APP_API_KEY}).then((data)=>data.json()).then((res)=>console.log(res));
-  
-
   const [data, setData] = React.useState([]);
 
-  const handleFetch = useMemo((newData) => {setData(newData); console.log(data)});
+  const handleFetch = useCallback((newData) => setData(newData));
+  useEffect(() => {
+    if (data === undefined) return;
+    console.log(data);
+  }, [data]);
 
   return (
     <div className="App">
@@ -27,7 +25,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/info">
-            <UserInfo/>
+            <UserInfo data={data}/>
           </Route>
           <Route path="/">
             <Search handle={handleFetch}/>
