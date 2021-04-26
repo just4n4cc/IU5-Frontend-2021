@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "./static/css/main.9d7c4fe5.chunk.css",
-    "main.js": "./static/js/main.96a470c2.chunk.js",
-    "main.js.map": "./static/js/main.96a470c2.chunk.js.map",
+    "main.css": "./static/css/main.3020a6ec.chunk.css",
+    "main.js": "./static/js/main.24e8108f.chunk.js",
+    "main.js.map": "./static/js/main.24e8108f.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.4dc0deb0.js",
     "runtime-main.js.map": "./static/js/runtime-main.4dc0deb0.js.map",
     "static/js/2.fc22f145.chunk.js": "./static/js/2.fc22f145.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.ef17568b.chunk.js": "./static/js/3.ef17568b.chunk.js",
     "static/js/3.ef17568b.chunk.js.map": "./static/js/3.ef17568b.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.9d7c4fe5.chunk.css.map": "./static/css/main.9d7c4fe5.chunk.css.map",
+    "static/css/main.3020a6ec.chunk.css.map": "./static/css/main.3020a6ec.chunk.css.map",
     "static/js/2.fc22f145.chunk.js.LICENSE.txt": "./static/js/2.fc22f145.chunk.js.LICENSE.txt",
     "static/media/binoculars.5ed2d02a.svg": "./static/media/binoculars.5ed2d02a.svg",
     "static/media/door.fb4804c6.svg": "./static/media/door.fb4804c6.svg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.4dc0deb0.js",
     "static/js/2.fc22f145.chunk.js",
-    "static/css/main.9d7c4fe5.chunk.css",
-    "static/js/main.96a470c2.chunk.js"
+    "static/css/main.3020a6ec.chunk.css",
+    "static/js/main.24e8108f.chunk.js"
   ]
 }

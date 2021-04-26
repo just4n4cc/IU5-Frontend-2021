@@ -1,5 +1,5 @@
 import "./Search.css"
-import binoculars from "../../img/binoculars.svg"
+import binoculars from "./img/binoculars.svg"
 import { useRef, useEffect, useState} from "react";
 import { useHistory } from "react-router-dom";
 
