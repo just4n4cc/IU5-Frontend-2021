@@ -9,6 +9,7 @@
 .rhs {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .rhs>img {
@@ -19,7 +20,7 @@
 #door {
     filter: invert(20%);
     cursor: pointer;
-    width: 250px;
+    width: 200px;
 }
 
 @media screen and (max-width: 1000px) {
