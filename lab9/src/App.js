@@ -16,7 +16,6 @@ function App() {
   const handleFetch = useCallback((newData) => setData(newData));
   useEffect(() => {
     if (data === undefined) return;
-    console.log(data);
   }, [data]);
 
   return (

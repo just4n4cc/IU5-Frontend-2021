@@ -20,7 +20,9 @@ export function Search(props) {
             return;
         }
         fetch("https://api.github.com/users/" + username, {
-        Authorization: process.env.REACT_APP_API_KEY
+            headers: {
+                Authorization: process.env.REACT_APP_API_KEY 
+              }
         }).then((data)=>data.json()).then((res)=> {
             if (res.message === "Not Found") {
                 handleError();
