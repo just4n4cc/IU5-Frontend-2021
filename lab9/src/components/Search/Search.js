@@ -1,5 +1,5 @@
 import "./Search.css"
-import binoculars from "./img/binoculars.svg"
+import {ReactComponent as Binoculars} from "./img/binoculars.svg"
 import { useRef, useEffect, useState} from "react";
 import { useHistory } from "react-router-dom";
 
@@ -44,7 +44,7 @@ export function Search(props) {
             </p>
             <div className="search-box">
                 <input ref={searchInput} onKeyDown={(e)=>handleSearch(e)} placeholder="Put username here..." autoFocus/>
-                <img ref={searchButton} onClick={(e) => handleSearch(e)} src={binoculars} alt=""/>
+                <Binoculars id="binoculars" ref={searchButton} onClick={(e) => handleSearch(e)} alt=""/>
             </div>
         </div>
     );

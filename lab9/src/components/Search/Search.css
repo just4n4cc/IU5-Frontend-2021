@@ -22,7 +22,7 @@ input {
     outline: none;
 }
 
-.search-box>img {
+#binoculars {
     width: 50px;
     cursor: pointer;
 }
@@ -38,7 +38,7 @@ input {
         border: 2px black solid;
         margin-right: 15px;
     }
-    .search-box>img {
+    #binoculars {
         width: 30px;
         cursor: pointer;
     }
