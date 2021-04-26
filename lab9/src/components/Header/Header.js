@@ -1,6 +1,6 @@
 import "./Header.css"
-import spy from "./img/spy.svg"
-import eye from "./img/eye.svg"
+import spy from "../../img/spy.svg"
+import eye from "../../img/eye.svg"
 
 export function Header() {
     return (
