@@ -1,38 +1,76 @@
+header {
+    background-color: #343434;
+    height: min-content;
+    padding: 25px;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+}
+
+h2 {
+    margin: 0px;
+}
+
 .App {
-  text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Main {
+    min-height: calc(100vh - 482px);
+    background-image: url(img/bg.png);
+    padding-bottom: 50px;
+    padding-top: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Frame {
+    border: 4px solid #000;
+    /* border: 3px solid rgb(71, 71, 71); */
+    border-radius: 25px;
+    max-width: 700px;
+    min-width: min-content;
+    padding: 15px;
+    margin: 0px auto;
+    /* margin: 50px auto; */
+    font-size: 30px;
+    position: relative;
+    background-color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input {
+    font-size: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="checkbox"] {
+    filter: invert(47%) hue-rotate(22deg) brightness(1.7);
+    margin: 0px;
+    cursor: pointer;
+    transform: scale(2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+:focus {
+    outline: none;
+}
+
+input[type="text"] {
+    margin: 5px 10px;
+    border: none;
+}
+
+label {
+    margin-left: 20px;
+}
+
+footer {
+    background-color: #343434;
+    color: #008000;
+    font-size: 20px;
+    font-family: monospace;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    margin-top: 0px;
+}
+
+footer>h2 {
+    margin-bottom: 20px;
 }
