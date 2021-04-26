@@ -32,7 +32,7 @@ export function Search(props) {
     }, [username]);
 
     function handleSearch(e) {
-        if (e.target === searchButton.current || e.code === "Enter") {
+        if (e.code === "Enter") {
             SetUsername(searchInput.current.value);
         }
     }
@@ -44,7 +44,7 @@ export function Search(props) {
             </p>
             <div className="search-box">
                 <input ref={searchInput} onKeyDown={(e)=>handleSearch(e)} placeholder="Put username here..." autoFocus/>
-                <Binoculars id="binoculars" ref={searchButton} onClick={(e) => handleSearch(e)} alt=""/>
+                <Binoculars  onClick={() => SetUsername(searchInput.current.value)} id="binoculars" ref={searchButton} alt=""/>
             </div>
         </div>
     );
