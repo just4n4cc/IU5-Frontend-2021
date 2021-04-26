@@ -8,6 +8,7 @@
 
 .search-box {
     display: flex;
+    max-height: 55px;
 }
 
 input {
@@ -30,6 +31,9 @@ input {
 @media screen and (max-width: 550px) {
     .content {
         padding: 20px;
+    }
+    .search-box {
+        max-height: 32px;
     }
     input {
         font-size: 20px;

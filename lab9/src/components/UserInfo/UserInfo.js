@@ -18,7 +18,6 @@ export function UserInfo(props) {
                 <p>On platform since: {props.data.created_at.slice(0,10)}</p>
                 <p>Followers: {props.data.followers}</p>
                 <p>Following: {props.data.following}</p>
-                <p>Email: {props.data.email === null ? "————" : props.data.email}</p>
             </div>
             <div className="rhs">
                 <img src={props.data.avatar_url} alt=""/>
