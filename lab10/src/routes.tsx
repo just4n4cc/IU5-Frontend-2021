@@ -2,16 +2,16 @@ import UserInfo from "./components/UserInfo/UserInfo"
 import Search from "./components/Search/Search"
 import {
     HashRouter as Router,
-    // BrowserRouter as Router,
     Switch,
     Route,
   } from "react-router-dom";
 
 const Routes: React.FC = () => (
     <div>
-      <Router>
+      <Router >
         <Switch>
             <Route
+                exact
                 path="/"
                 render={() => (
                     <Search/>
@@ -19,9 +19,10 @@ const Routes: React.FC = () => (
             />
             <Route
                 path="/info"
-                render={() => (
-                    <UserInfo/>                    
-                )}
+                component={UserInfo}
+                // render={() => (
+                //     <UserInfo/>                    
+                // )}
             />
         </Switch>
       </Router>
