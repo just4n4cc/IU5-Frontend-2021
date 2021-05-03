@@ -23,7 +23,11 @@ const UserInfo: React.FC = () => {
     }, [])
 
     if (loading) {
-        return <h1>Loading...</h1>
+        return <div className="info">
+            <div className="lhs">
+                <h1>Loading...</h1>
+            </div>
+        </div>
     }
     if (error) {
         return <div className="info">
