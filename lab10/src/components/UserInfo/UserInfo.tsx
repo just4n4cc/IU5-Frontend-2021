@@ -1,5 +1,6 @@
 import "./UserInfo.css"
 import {ReactComponent as Door} from "./img/door.svg"
+import Cat from "./img/cat-vibing.gif"
 import {useHistory} from "react-router-dom"
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useCallback, useEffect } from "react";
@@ -35,6 +36,7 @@ const UserInfo: React.FC = () => {
                 <h1>{error}</h1>
             </div>
             <div className="rhs">
+                <img src={Cat} alt=""/>
                 <Door onClick={(e)=>handleClick()} id="door"/>
             </div>
         </div>
