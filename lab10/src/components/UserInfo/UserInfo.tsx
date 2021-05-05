@@ -42,7 +42,15 @@ const UserInfo: React.FC = () => {
         </div>
     }
     if (!user) {
-        return <h1>Error while loading user</h1>
+        return <div className="info">
+            <div className="lhs">
+                <h1>Error while loading user</h1>
+            </div>
+            <div className="rhs">
+                <img src={Cat} alt=""/>
+                <Door onClick={(e)=>handleClick()} id="door"/>
+            </div>
+        </div>
     }
 
     return (
